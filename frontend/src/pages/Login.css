@@ -1,0 +1,112 @@
+/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* පසුබිමට ලස්සන Gradient එකක් */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9); /* වීදුරු වැනි විනිවිද පෙනෙන ස්වභාවය */
+    backdrop-filter: blur(15px); /* පසුබිම Blur කරන effect එක */
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+.login-card h2 {
+    color: #1f2937;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Padding නිසා ප්‍රමාණය වෙනස් වීම වැළැක්වීමට */
+}
+
+.input-group input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.btn-submit {
+    width: 100%;
+    background: #6366f1;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+.btn-submit:hover {
+    background: #4f46e5;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    transform: scale(1.02);
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+.switch-text {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.switch-link {
+    color: #6366f1;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.switch-link:hover {
+    color: #4f46e5;
+    text-decoration: underline;
+}
+
+/* කුඩා screen සඳහා (Mobile) */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+}
