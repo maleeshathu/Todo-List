@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Todo = require('../models/Todo');
 
-// 1. Home - සියලුම Task ලබා ගැනීම
+// 1. Home 
 router.get('/', async (req, res) => {
     try {
         const todos = await Todo.find();
@@ -12,23 +12,23 @@ router.get('/', async (req, res) => {
     }
 });
 
-// 2. Pending Tasks - ඉවර නොකළ ඒවා පමණක්
+//Pending Tasks 
 router.get('/pending', async (req, res) => {
     const pending = await Todo.find({ completed: false });
     res.json(pending);
 });
 
-// 3. Completed Tasks - ඉවර කළ ඒවා පමණක්
+//Completed Tasks 
 router.get('/completed', async (req, res) => {
     const completed = await Todo.find({ completed: true });
     res.json(completed);
 });
 
-// 4. Task එකක් එකතු කිරීම (Add Task)
+// Add Task
 router.post('/add', async (req, res) => {
     const newTodo = new Todo({ 
         task: req.body.task,
-        description: req.body.description // <-- මෙතන තමයි description එක save වෙන්නේ
+        description: req.body.description 
     });
     try {
         await newTodo.save();
@@ -38,7 +38,7 @@ router.post('/add', async (req, res) => {
     }
 });
 
-// 5. Task එකක් Update කිරීම (Update Task)
+//Update Task
 router.put('/:id', async (req, res) => {
     try {
         const updatedTodo = await Todo.findByIdAndUpdate(
@@ -56,7 +56,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// 6. Task එකක් මකා දැමීම (Delete Task)
+//Delete Task
 router.delete('/:id', async (req, res) => {
     try {
         await Todo.findByIdAndDelete(req.params.id);
