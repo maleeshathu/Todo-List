@@ -19,10 +19,10 @@ app.use('/api/todos', todoRoutes); //login regis end
 // MongoDB Connection
 const uri = process.env.MONGO_URI;
 mongoose.connect(uri)
-    .then(() => console.log("MongoDB එකට සාර්ථකව සම්බන්ධ වුණා! ✅"))
-    .catch(err => console.log("සම්බන්ධ වීමේ දෝෂයක්: ❌", err));
+    .then(() => console.log("Successfully connected to MongoDB"))
+    .catch(err => console.log("Connection error", err));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server එක Port ${PORT} එකේ වැඩ කරනවා...`);
+    console.log(`Server is running on Port ${PORT} ...`);
 });
