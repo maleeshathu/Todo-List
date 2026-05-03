@@ -13,7 +13,7 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    // 1. සියලුම Task ලබා ගැනීම
+    //
     const fetchTasks = useCallback(async () => {
         try {
             const res = await axios.get('http://localhost:5000/api/todos');
@@ -24,16 +24,16 @@ const Home = () => {
     }, []);
 
    useEffect(() => {
-    fetchTasks(); // හෝ අදාළ function එක
+    fetchTasks(); 
     }, []);
 
 
-    // Dashboard එකට අවශ්‍ය ගණනන් ටික වෙන් කරගැනීම
+    
 const totalTasks = tasks.length;
 const completedTasks = tasks.filter(t => t.completed).length;
 const pendingTasks = totalTasks - completedTasks;
 
-    // 2. Task එකක් එකතු කිරීම
+   
     const handleAddTask = async (e) => {
         e.preventDefault();
         try {
@@ -46,24 +46,24 @@ const pendingTasks = totalTasks - completedTasks;
             fetchTasks(); 
         } catch (err) {
             console.error(err);
-            alert("Task එක ඇතුළත් කිරීම අසාර්ථකයි");
+            alert("Task input successful");
         }
     };
 
-    // 3. Task එකක් මකා දැමීම
+    // 3. Task delete
     const handleDelete = async (id) => {
-        if(window.confirm("ඔබට මෙය මකා දැමීමට අවශ්‍යද?")) {
+        if(window.confirm("Are you sure you want to delete this?")) {
             try {
                 await axios.delete(`http://localhost:5000/api/todos/${id}`);
                 fetchTasks();
             } catch (err) {
                 console.error(err);
-                alert("මකා දැමීම අසාර්ථකයි");
+                alert("delete failed");
             }
         }
     };
 
-    // 4. Task එකක තත්ත්වය (Complete/Undo) වෙනස් කිරීම
+    
     const handleToggleComplete = async (id, currentStatus) => {
         try {
             await axios.put(`http://localhost:5000/api/todos/${id}`, {
@@ -91,7 +91,7 @@ const pendingTasks = totalTasks - completedTasks;
             fetchTasks();
         } catch (err) {
             console.error(err);
-            alert("Update කිරීම අසාර්ථකයි");
+            alert("Update failed");
         }
     };
 
@@ -108,7 +108,7 @@ const pendingTasks = totalTasks - completedTasks;
             </nav>
 
 
-                    {/* --- Dashboard Cards ආරම්භය --- */}
+                    {/* --- Dashboard Cards --- */}
         <div className="dashboard-stats">
             <div className="stat-card total">
                 <h3>Total</h3>
@@ -123,7 +123,7 @@ const pendingTasks = totalTasks - completedTasks;
                 <p>{completedTasks}</p>
             </div>
         </div>
-        {/* --- Dashboard Cards අවසානය --- */}
+        {/* --- Dashboard Cards end --- */}
 
 
 
