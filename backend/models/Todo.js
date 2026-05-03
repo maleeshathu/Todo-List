@@ -1,22 +1,20 @@
 const mongoose = require('mongoose');
-
-// අපේ දත්ත ගබඩා වෙන්න ඕනේ හැඩය මෙතනින් තීරණය කරනවා
 const TodoSchema = new mongoose.Schema({
     task: {
         type: String,
-        required: true // අනිවාර්යයෙන්ම task එකක් තිබිය යුතුයි
+        required: true 
     },
     description: { 
         type: String,
-        default: "" // description එකක් නැති වුණොත් හිස්ව තබනවා
+        default: "" 
     },
     completed: {
         type: Boolean,
-        default: false // මුලින්ම task එකක් දාද්දී ඒක ඉවර නැති නිසා false වෙනවා
+        default: false 
     },
     createdAt: {
         type: Date,
-        default: Date.now // දත්තය ඇතුළත් කළ වෙලාව
+        default: Date.now 
     }
 });
 
