@@ -7,9 +7,9 @@ router.post('/register', async (req, res) => {
     try {
         const newUser = new User(req.body);
         await newUser.save();
-        res.json({ message: "ලියාපදිංචිය සාර්ථකයි!" });
+        res.json({ message: "Registration successful!" });
     } catch (err) {
-        res.status(400).json({ error: "Username එක දැනටමත් පාවිච්චි කර ඇත." });
+        res.status(400).json({ error: "Username is already taken." });
     }
 });
 
@@ -20,7 +20,7 @@ router.post('/login', async (req, res) => {
     if (user) {
         res.json({ message: "Login සාර්ථකයි!", userId: user._id });
     } else {
-        res.status(401).json({ error: "Username හෝ Password වැරදියි!" });
+        res.status(401).json({ error: "Invalid Username or Password!" });
     }
 });
 
