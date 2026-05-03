@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // CSS file එක මෙතනින් import කරන්න
+import './Login.css'; 
 
 const Login = () => {
     const [isRegister, setIsRegister] = useState(false);
@@ -22,7 +22,7 @@ const Login = () => {
                 setIsRegister(false);
             }
         } catch (err) {
-            alert(err.response?.data?.error || "වැරදීමක් සිදුවුණා!");
+            alert(err.response?.data?.error || "An error occurred!");
         }
     };
 
